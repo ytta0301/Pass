@@ -1,0 +1,119 @@
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --text: #16202c;
+  --muted: #55657a;
+  --border: #d7dee8;
+  --accent: #f6821f;
+  --accent-hover: #d96d10;
+  --on-accent: #1a1006;
+  --focus: #1d6fdc;
+
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1722;
+    --surface: #182333;
+    --text: #eef2f7;
+    --muted: #9fb0c5;
+    --border: #2a3a50;
+    --accent-hover: #ff9a45;
+    --focus: #6aa8ff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  width: 100%;
+  max-width: 34rem;
+  padding: 2.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.9rem, 6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+main > p {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 0;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+#hasil {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 0.4rem;
+}
+
+#hasil:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  main {
+    padding: 1.75rem 1.25rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
